@@ -7,6 +7,6 @@ R = 3
 x = R * np.cos(alpha)
 y = R * np.sin(alpha)
 
-plt.plot(x, y, ls='dotted', lw=3)
+plt.plot(x, y, ls='dotted', lw=2)
 plt.axis('equal')
 plt.savefig('pic_1.png')
