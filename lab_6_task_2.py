@@ -1,15 +1,23 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-def graph(a, b, c, nazv, xa, xb, N):
-    x = np.linspace(xa, xb, N)
-    y1 = 1 / x
-    y2 = a * x**2 + b * x + c
+def graph(nazv, *coeff):
+    x = np.arange(-10, 10, 0.01)
+    plt.axis('equal')
     plt.xlabel('X')
     plt.ylabel('Y')
+    plt.title(nazv)
     plt.grid()
-    plt.plot(x, y1)
-    plt.plot(x, y2)
-    plt.savefig('pic_1.png')
+    
+    if nazv == 'parabola':
+        y = coeff[0] * x**2 + coeff[1] * x + coeff[2]
+        plt.plot(x, y)
+        plt.savefig('pic_1.png')
+    elif nazv == 'giperbola':
+        y = np.arange(-10, 10, 0.01)
+        x, y = np.meshgrid(x, y)
+        fxy = x**2 / coeff[0]**2 - y**2 / coeff[1] **2
+        plt.contour(x, y, fxy, levels=[0])
+        plt.savefig('pic_1.png')
 
-graph(2, 3, 4, 'Гипербола', -10, 10, 0.01)
+graph('giperbola', 2, 3, 4)
