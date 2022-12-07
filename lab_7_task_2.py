@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
  
 fig, ax = plt.subplots()
-ball, = plt.plot([], [], 'o', color='b', label='Ball')
+ball, = plt.plot([], [], 'o', color='b')
  
 def circle_move(R, k, time):
     R = k * time

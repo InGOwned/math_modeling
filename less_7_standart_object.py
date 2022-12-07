@@ -1,4 +1,4 @@
-import matplotlib.animation as animation
+from matplotlib.animation import FuncAnimation
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -19,6 +19,6 @@ ax.set_ylim(-edge, edge)
 def animate(i):
     ball.set_data(circle_move(R=2, angle_vel=1, time=i))
 
-ani = animation.FuncAnimation(fig, animate, frames=360, interval=30)
+ani = FuncAnimation(fig, animate, frames=360, interval=30)
 
 ani.save('lec_7_simple_animation.gif')
