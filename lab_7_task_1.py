@@ -11,7 +11,6 @@ def cicloida(R):
     plt.plot(x, y)
     plt.savefig('lab_7_cicloida.png')
 
-cicloida(5)
 
 def astroida(R):
     t = np.arange(-10, 10, 0.01)
@@ -22,4 +21,6 @@ def astroida(R):
     plt.plot(x, y)
     plt.savefig('lab_7_astroida.png')
 
+
 astroida(10)
+cicloida(5)
