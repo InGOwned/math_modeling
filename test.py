@@ -6,10 +6,10 @@ fig, ax = plt.subplots()
 figure, = plt.plot([], [], '-', color='r')
 plt.axis('equal')
 
-# fi = np.arange(0, np.pi * 8, 0.1)
+fi = np.arange(0, np.pi * 8, 0.1)
 
 
-def ellipse(p, e):
+def ellipse(p, e, fi):
     r = p / (1 + (e * np.cos(fi)))
 
     x = r * np.cos(fi)
@@ -18,13 +18,13 @@ def ellipse(p, e):
 
 
 def animate(i):
-    figure.set_data(ellipse(p = 3, e = 0.65))
+    figure.set_data(ellipse(p = 3, e = 0.65, fi = fi))
     return figure,
 
+edge = 10
+ax.set_xlim(-edge, edge)
+ax.set_ylim(-edge, edge)
 
-ax.set_xlim(-30, 30)
-ax.set_ylim(-30, 30)
 
-
-ani = FuncAnimation(fig, animate, frames=np.arange(0, np.pi * 8, 0.1), interval=300)
+ani = FuncAnimation(fig, animate, frames=500, interval=30)
 ani.save("ellipse.gif")
