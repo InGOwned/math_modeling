@@ -10,7 +10,7 @@ plt.axis('equal')
 
 
 def ellipse(p, e):
-    r = p / (1 + (e * np.cos(e)))
+    r = p / (1 + (e * np.cos(fi)))
 
     x = r * np.cos(fi)
     y = r * np.sin(fi)
