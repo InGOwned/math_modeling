@@ -3,10 +3,13 @@ from matplotlib.animation import FuncAnimation
 import numpy as np
 
 fig, ax = plt.subplots()
+trajectory, = plt.plot([], [], '-', color='b')
 ball, = plt.plot([], [], 'o', color='r')
-plt.axis('equal')
 
-frames = np.arange(0, np.pi * 8, 0.06)
+plt.axis('equal')
+plt.grid()
+
+frames = np.arange(0, np.pi * 2.01, 0.045)
 
 edge = 10
 ax.set_xlim(-edge, edge)
@@ -21,8 +24,15 @@ def ellipse(p, e, fi):
     return x, y
 
 
+X, Y =[], []
+
+
 def animate(i):
+    X.append(ellipse(p = 3, e = 0.65, fi = i)[0])
+    Y.append(ellipse(p = 3, e = 0.65, fi = i)[1])
     ball.set_data(ellipse(p = 3, e = 0.65, fi = i))
+    trajectory.set_data(X, Y)
+    plt.plot(-3.5, 0)
     return ball,
 
 
